@@ -5,7 +5,27 @@ metadata:
   version: 1.0
 
 # This section describes the Deployments of the data pipeline
-deployments: []
+deployments:
+  - name: Ham-2
+    application: jam
+    deploymentType: Service
+    version: 9bead0a41132e70b6efd6200d61b1051d5bcadcf
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic to read data from
+        required: true
+        value: input-lol
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic to write data to
+        required: true
+        value: output-topic
 
 # This section describes the Topics of the data pipeline
 topics:
