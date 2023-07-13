@@ -11,7 +11,7 @@ deployments:
     deploymentType: Service
     version: 9bead0a41132e70b6efd6200d61b1051d5bcadcf
     resources:
-      cpu: 500
+      cpu: {{cpu}}
       memory: 440
       replicas: 1
     desiredStatus: Stopped
