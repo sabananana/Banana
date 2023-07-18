@@ -42,6 +42,20 @@ deployments:
 
 # This section describes the Topics of the data pipeline
 topics:
+  - name: a
+    persisted: false
+    configuration:
+      partitions: 2
+      replicationFactor: 2
+      retentionInMinutes: 60
+      retentionInBytes: 52428800
+  - name: output-topic
+    persisted: false
+    configuration:
+      partitions: 2
+      replicationFactor: 2
+      retentionInMinutes: 10080
+      retentionInBytes: 262144000
   - name: f1-data
     persisted: false
     configuration:
