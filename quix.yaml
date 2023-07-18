@@ -19,9 +19,35 @@ deployments:
         description: Name of the output topic to write into
         required: true
         value: f1-data
+  - name: Event Detection 2
+    application: Event Detection 2
+    deploymentType: Service
+    version: 1ecef594011458a4cf9615cd03a33fe681621912
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic for f1 data
+        required: true
+        value: f1-data
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic for hard braking events
+        required: true
+        value: hard-braking
 
 # This section describes the Topics of the data pipeline
 topics:
+  - name: hard-braking
+    persisted: false
+    configuration:
+      partitions: 2
+      replicationFactor: 2
+      retentionInMinutes: 10080
+      retentionInBytes: 262144000
   - name: a
     persisted: false
     configuration:
