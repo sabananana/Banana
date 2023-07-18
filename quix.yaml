@@ -19,6 +19,26 @@ deployments:
         description: Name of the output topic to write into
         required: true
         value: f1-data
+  - name: Ham-2-2
+    application: jam-5-3-2
+    deploymentType: Service
+    version: 1584df7dbef4112a866e0b4303497cfa111b28ea
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic to read data from
+        required: true
+        value: f1-data
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic to write data to
+        required: true
+        value: output-topic
 
 # This section describes the Topics of the data pipeline
 topics:
