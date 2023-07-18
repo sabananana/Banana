@@ -1,0 +1,21 @@
+name: New York bikes - Prediction
+language: python
+variables:
+  - name: bike_input
+    inputType: InputTopic
+    description: This is the input topic for bike data
+    defaultValue: bikes-topic
+    required: true
+  - name: weather_input
+    inputType: InputTopic
+    description: This is the input topic for weather data
+    defaultValue: weather-topic
+    required: true
+  - name: output
+    inputType: OutputTopic
+    description: Name of the output topic to write predictions to
+    defaultValue: NY-bikes-prediction
+    required: true
+dockerfile: build/dockerfile
+runEntryPoint: main.py
+defaultFile: model_functions.py
