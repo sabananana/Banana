@@ -39,6 +39,26 @@ deployments:
         description: This is the output topic for hard braking events
         required: true
         value: hard-braking
+  - name: Slack
+    application: Slack
+    deploymentType: Service
+    version: a9f585f82427e09bd453d2b530f6cd686b7d7df7
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: Name of the input topic to listen to.
+        required: true
+        value: f1-data
+      - name: webhook_url
+        inputType: FreeText
+        description: The webhook url to send notifications to
+        required: true
+        value: a
 
 # This section describes the Topics of the data pipeline
 topics:
