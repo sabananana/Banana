@@ -6,10 +6,23 @@ metadata:
 
 # This section describes the Deployments of the data pipeline
 deployments:
-  - name: Ham-2
-    application: jam
+  - name: Demo Data
+    deploymentType: Job
+    resources:
+      cpu: 200
+      memory: 200
+      replicas: 1
+    libraryItemId: 7abe02e1-1e75-4783-864c-46b930b42afe
+    variables:
+      - name: Topic
+        inputType: OutputTopic
+        description: Name of the output topic to write into
+        required: true
+        value: f1-data
+  - name: Ham-2-2
+    application: jam-5-3-2
     deploymentType: Service
-    version: 9bead0a41132e70b6efd6200d61b1051d5bcadcf
+    version: 1584df7dbef4112a866e0b4303497cfa111b28ea
     resources:
       cpu: 200
       memory: 500
@@ -20,7 +33,7 @@ deployments:
         inputType: InputTopic
         description: This is the input topic to read data from
         required: true
-        value: input-lol
+        value: f1-data
       - name: output
         inputType: OutputTopic
         description: This is the output topic to write data to
@@ -29,7 +42,7 @@ deployments:
 
 # This section describes the Topics of the data pipeline
 topics:
-  - name: input-lol
+  - name: f1-data
     persisted: false
     configuration:
       partitions: 2
