@@ -59,6 +59,26 @@ deployments:
         description: The webhook url to send notifications to
         required: true
         value: a
+  - name: Event Detection
+    application: Event Detection
+    deploymentType: Service
+    version: 0d327713ce82e13197ab68ddac226f4daaa888a3
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic for f1 data
+        required: true
+        value: a
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic for hard braking events
+        required: true
+        value: hard-braking
 
 # This section describes the Topics of the data pipeline
 topics:
