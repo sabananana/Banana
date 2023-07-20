@@ -12,5 +12,5 @@ variables:
     defaultValue: output-topic
     required: true
 dockerfile: build/dockerfile
-runEntryPoint: main.py
-defaultFile: main.py
+runEntryPoint: babababa/main.py
+defaultFile: babababa/main.py
