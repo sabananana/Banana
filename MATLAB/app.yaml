@@ -1,0 +1,16 @@
+name: MATLAB
+language: csharp
+variables:
+  - name: input
+    inputType: InputTopic
+    description: This is the input topic where to read data in
+    defaultValue: ''
+    required: true
+  - name: output
+    inputType: OutputTopic
+    description: This is the output topic where to write data out
+    defaultValue: ''
+    required: true
+dockerfile: build/dockerfile
+runEntryPoint: Service.csproj
+defaultFile: Program.cs

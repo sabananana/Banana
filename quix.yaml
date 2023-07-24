@@ -19,10 +19,10 @@ deployments:
         description: Name of the output topic to write into
         required: true
         value: f1-data
-  - name: Ham-2-2
-    application: jam-5-3-2
+  - name: Event Detection 2
+    application: Event Detection 2
     deploymentType: Service
-    version: 1584df7dbef4112a866e0b4303497cfa111b28ea
+    version: 1ecef594011458a4cf9615cd03a33fe681621912
     resources:
       cpu: 200
       memory: 500
@@ -31,17 +31,64 @@ deployments:
     variables:
       - name: input
         inputType: InputTopic
-        description: This is the input topic to read data from
+        description: This is the input topic for f1 data
         required: true
         value: f1-data
       - name: output
         inputType: OutputTopic
-        description: This is the output topic to write data to
+        description: This is the output topic for hard braking events
         required: true
-        value: output-topic
+        value: hard-braking
+  - name: Slack
+    application: Slack
+    deploymentType: Service
+    version: a9f585f82427e09bd453d2b530f6cd686b7d7df7
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: Name of the input topic to listen to.
+        required: true
+        value: f1-data
+      - name: webhook_url
+        inputType: FreeText
+        description: The webhook url to send notifications to
+        required: true
+        value: a
+  - name: Event Detection
+    application: Event Detection
+    deploymentType: Service
+    version: 0d327713ce82e13197ab68ddac226f4daaa888a3
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic for f1 data
+        required: true
+        value: a
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic for hard braking events
+        required: true
+        value: hard-braking
 
 # This section describes the Topics of the data pipeline
 topics:
+  - name: hard-braking
+    persisted: false
+    configuration:
+      partitions: 2
+      replicationFactor: 2
+      retentionInMinutes: 10080
+      retentionInBytes: 262144000
   - name: a
     persisted: false
     configuration:

@@ -1,0 +1,6 @@
+name: Event Detection
+language: python
+variables: []
+dockerfile: build/dockerfile
+runEntryPoint: build/bbabab/root/main.py
+defaultFile: ababbaba/quix_function.py
