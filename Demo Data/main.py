@@ -1,4 +1,4 @@
-# This code will publish the CSV data to a stream as if the data were being generated in real-time.
+# This code will publish the CSV lhkjlhkdata to a stream as if the data were being generated in real-time.
 
 import quixstreams as qx
 import pandas as pd
