@@ -82,7 +82,7 @@ deployments:
   - name: Demo Data 2
     application: Demo Data
     deploymentType: Service
-    version: lmao
+    version: ok
     resources:
       cpu: 200
       memory: 500
