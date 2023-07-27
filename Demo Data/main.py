@@ -92,7 +92,7 @@ def process_csv_file(csv_file):
     # Read the CSV file into a pandas DataFrame
     df = pd.read_csv(csv_file)
     print("File loaded.")
-
+    print('hi')
     # Tag columns must have names prefixed with `Tag__`.
     # These represent data that will not change often, e.g. the lap number and pit status
     # For this data we have several tag values:
