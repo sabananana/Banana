@@ -196,7 +196,7 @@ def process_csv_file(csv_file):
             .publish()
 
     print("All rows published.")
-
+    print('hi')
     # Close the stream when publishing has ended
     # The stream can be reopened an ay time.
     print("Closing the stream.")
