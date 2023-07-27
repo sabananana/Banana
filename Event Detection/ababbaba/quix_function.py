@@ -7,7 +7,7 @@ class QuixFunction:
         self.consumer_stream = consumer_stream
         self.producer_stream = producer_stream
 
-    # Callback triggered for each new event
+    # Callback triggered for each new eventqwefqwefqwef
     def on_event_data_handler(self, stream_consumer: qx.StreamConsumer, data: qx.EventData):
         print(data.value)
 
